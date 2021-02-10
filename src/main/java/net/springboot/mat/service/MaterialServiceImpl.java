@@ -31,6 +31,16 @@ public class MaterialServiceImpl implements MaterialService {
 	 PageRequest pageable = PageRequest.of(pageNo - 1, pageSize);
 	 return this.materialRepository.findAll(pageable);
 	}
+
+	@Override
+	public List<Material> listAll(String Keyword) {
+		if(Keyword !=null) {
+			return materialRepository.findAll(Keyword);
+			
+		}
+		// TODO Auto-generated method stub
+		return materialRepository.findAll();
+	}
 	
 
 }

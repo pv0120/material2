@@ -11,5 +11,8 @@ public interface MaterialService {
 	
 /////////////////////Pagination//////////////////////////////////////////	
 	Page < Material > findPaginated(int pageNo, int pageSize);
+
+
+	List<Material> listAll(String keyword);
 	
 }

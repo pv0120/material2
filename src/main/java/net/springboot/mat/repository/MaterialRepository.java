@@ -13,7 +13,11 @@ import net.springboot.mat.model.Material;
 public interface MaterialRepository extends JpaRepository<Material, String>{
 
 	
-	//for filter/Search
-//	@Query("SELECT M from Material where m.dateproduced Like %?1%" )
-//	public List <Material> findall(String keyword);
+	//for keyword Search
+	@Query
+	("SELECT m FROM Material m WHERE "
+	 +"CONCAT( m.cartnumber, ' ', m.containerid ,' ', m.dateproduced ,' ', m.timeproduced )"
+     + "LIKE %?1%")			
+
+	public List <Material> findAll(String Keyword);
 }
